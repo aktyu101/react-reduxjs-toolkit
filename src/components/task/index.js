@@ -1,4 +1,4 @@
-import { addTask, deleteTask } from "../../store/task/taskSlice";
+import { addTask, deleteTask, allDeleteTask } from "../../store/task/taskSlice";
 import { useSelector, useDispatch } from "react-redux";
 import styled from "@emotion/styled";
 import { useState } from "react";
@@ -19,26 +19,25 @@ export default function Task() {
       alert("입력된 정보가 없습니다.");
       return;
     }
-
-    // const payload = {
-    //   todo: value,
-    //   createAt: dayjs().format("yyyy-M-D HH:mm:ss"),
-    // };
-    // console.log("submit payload", payload, dayjs);
-
     dispatch(
       addTask({
         todo: value,
         createdAt: dayjs().format("YYYY-M-D HH:mm:ss"),
       })
     );
+    setTodo("");
   };
-
+  //삭제
   const handleClickDelete = (id) => {
     console.log("deleteid", id);
     if (window.confirm("삭제 하시겠습니까?")) {
       dispatch(deleteTask(id));
     }
+  };
+
+  //전체삭제
+  const handleClickAllDelete = (tasks) => {
+    dispatch(allDeleteTask());
   };
 
   return (
@@ -50,7 +49,7 @@ export default function Task() {
           placeholder="할 일을 입력하세요."
           onChange={handleChangeTodo}
         />
-        <SubBtn onClick={handleClickSubmit}>추가</SubBtn>
+        <SubmitBtn onClick={handleClickSubmit}>추가</SubmitBtn>
       </WrapInput>
       <List>
         {tasks.map((task, index) => (
@@ -65,6 +64,15 @@ export default function Task() {
           </ListItem>
         ))}
       </List>
+      <WrapEventBtn>
+        <AllDeleteBtn
+          onClick={() => {
+            handleClickAllDelete();
+          }}
+        >
+          전체삭제
+        </AllDeleteBtn>
+      </WrapEventBtn>
     </Container>
   );
 }
@@ -75,7 +83,7 @@ const Container = styled.div`
 const List = styled.ul`
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
+  margin: 20px 0;
   gap: 5px;
 `;
 const ListItem = styled.li`
@@ -93,12 +101,30 @@ const WrapInput = styled.div`
 `;
 const Input = styled.input`
   outline: none;
+  width: 100%;
+  text-indent: 10px;
 `;
-const SubBtn = styled.button`
+const SubmitBtn = styled.button`
   height: 45px;
+  width: 10%;
+  color: #fff;
+  background-color: #222;
 `;
 const ListItemTime = styled.div`
   display: flex;
   gap: 0 5px;
   align-times: center;
+`;
+const WrapEventBtn = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+const AllDeleteBtn = styled.button`
+  color: #222;
+  background-color: #fff;
+  border: solid 1px #222;
+  height: 45px;
+  box-sizing: border-box;
+  padding: 0 10px;
+  float: right;
 `;

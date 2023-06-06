@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"; //
+
 const initialState = {
   tasks: [
     {
@@ -18,10 +19,11 @@ export const taskSlice = createSlice({
     deleteTask: (state, action) => {
       state.tasks = state.tasks.filter((task) => task.id !== action.payload);
     },
+    allDeletTask: (state, action) => {},
   },
 });
 
-export const { addTask, deleteTask } = taskSlice.actions;
+export const { addTask, deleteTask, allDeleteTask } = taskSlice.actions;
 export default taskSlice.reducer;
 
 //할일 추가, 삭제
