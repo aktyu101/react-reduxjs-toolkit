@@ -1,11 +1,7 @@
-import Counter from "./components/counter";
+import { Outlet } from "react-router-dom";
 
 function App() {
-  return (
-    <div>
-      <Counter />
-    </div>
-  );
+  return <Outlet />;
 }
 
 export default App;
