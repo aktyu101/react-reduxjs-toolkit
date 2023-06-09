@@ -7,11 +7,7 @@ import { store } from "./store"; //
 import { Provider } from "react-redux"; //
 import Counter from "./components/counter";
 import Task from "./components/task";
-import {
-  RouterProvider,
-  createBrowserRouter,
-  createHashRouter,
-} from "react-router-dom";
+import { RouterProvider, createBrowserRouter, Route } from "react-router-dom";
 import { Global, css } from "@emotion/react";
 
 const router = createBrowserRouter([
