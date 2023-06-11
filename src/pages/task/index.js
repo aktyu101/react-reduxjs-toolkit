@@ -36,8 +36,10 @@ export default function Task() {
   };
 
   //전체삭제
-  const handleClickAllDelete = (tasks) => {
-    dispatch(allDeleteTask());
+  const handleClickAllDelete = () => {
+    if (window.confirm("전체 리스트를 삭제 하시겠습니까?")) {
+      dispatch(allDeleteTask(tasks));
+    }
   };
 
   return (

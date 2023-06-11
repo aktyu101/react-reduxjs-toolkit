@@ -32,6 +32,8 @@ const router = createBrowserRouter([
   },
 ]);
 
+export default router;
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
@@ -61,16 +63,22 @@ root.render(
           boxSizing: "border-box",
           borderBottom: "solid 1px #222",
           backgroundColor: "#222",
+          display: "flex",
+          position: "sticky",
+          top: 0,
         }}
       >
         <ul
           style={{
             display: "flex",
             justifyContent: "space-between",
+            width: "100%",
           }}
         >
           <ul>
-            <li style={{ color: "#fff" }}>home</li>
+            <li path="/" style={{ color: "#fff" }}>
+              home
+            </li>
           </ul>
           <ul
             style={{

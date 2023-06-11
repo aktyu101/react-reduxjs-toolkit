@@ -64,23 +64,28 @@ const ListItem = ({ children }) => {
 //axios api 호출
 const ListContainerInner = styled.ul`
   display: flex;
-  padding: 50px 0;
-  justify-content: center;
+  padding: 20px;
+  justify-content: space-between;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
+  flex-flow: wrap;
 `;
 const StyledListItem = styled.li`
   display: flex;
   flex-direction: column;
   gap: 5px;
+  padding-bottom: 30px;
+  justify-content: center;
+  -webkit-justify-content: flex-start;
 `;
 const PhotoTitle = styled.div`
   font-weight: 400;
+  width: 400px;
+  height: 80px;
 `;
 const PhotoBox = styled.div``;
 const PhotoImage = styled.img`
-  width: 600px;
+  width: 400px;
   height: auto;
 `;
 //target이 있어야 함, ref가 아이템마다 적용되어 있어야 함
