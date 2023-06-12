@@ -8,8 +8,9 @@ import { Provider } from "react-redux"; //
 import Counter from "./pages/counter";
 import Task from "./pages/task";
 import Photos from "./pages/photos";
-import { RouterProvider, createBrowserRouter, Route } from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Global, css } from "@emotion/react";
+import Navigation from "./components/Navigation";
 
 const router = createBrowserRouter([
   {
@@ -55,42 +56,9 @@ root.render(
         }
       `}
     />
+
     <Provider store={store}>
-      <nav
-        style={{
-          width: "100%",
-          padding: "20px",
-          boxSizing: "border-box",
-          borderBottom: "solid 1px #222",
-          backgroundColor: "#222",
-          display: "flex",
-          position: "sticky",
-          top: 0,
-        }}
-      >
-        <ul
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            width: "100%",
-          }}
-        >
-          <ul>
-            <li path="/" style={{ color: "#fff" }}>
-              home
-            </li>
-          </ul>
-          <ul
-            style={{
-              display: "flex",
-              gap: "10px",
-            }}
-          >
-            <li style={{ color: "#fff" }}>task</li>
-            <li style={{ color: "#fff" }}>counter</li>
-          </ul>
-        </ul>
-      </nav>
+      <Navigation />
       <RouterProvider router={router} />
     </Provider>
   </React.StrictMode>
