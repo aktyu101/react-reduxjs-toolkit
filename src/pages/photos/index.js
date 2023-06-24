@@ -46,19 +46,34 @@ export default function Photos() {
 }
 const ListItem = ({ children }) => {
   const [target, SetTarget] = useState(null);
+  const [isActive, setIsActive] = useState(false);
+
   useEffect(() => {
     let observer;
     if (target) {
-      observer = new IntersectionObserver(() => {}, {
-        threshold: 0.4,
-      });
+      observer = new IntersectionObserver(
+        (entries) => {
+          // setIsActive(true);
+          entries.forEach((entry) => {
+            setIsActive(entry.isIntersecting);
+          });
+        },
+        {
+          threshold: 0.1,
+        }
+      );
+      //observer viewport범위안에 들어왔을 때 동작할 콜백함수 ()=> {}
       observer.observe(target);
     }
     return () => {
       observer && observer.disconnect();
     };
   }, [target]);
-  return <StyledListItem ref={SetTarget}>{children}</StyledListItem>;
+  return (
+    <StyledListItem ref={SetTarget} isActive={isActive}>
+      {children}
+    </StyledListItem>
+  );
 };
 
 //axios api 호출
@@ -77,6 +92,8 @@ const StyledListItem = styled.li`
   padding-bottom: 30px;
   justify-content: center;
   -webkit-justify-content: flex-start;
+  opacity: ${(props) => (props.isActive ? 1 : 0)};
+  transition: opacity 1s;
 `;
 const PhotoTitle = styled.div`
   font-weight: 400;

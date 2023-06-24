@@ -10,7 +10,7 @@ import Task from "./pages/task";
 import Photos from "./pages/photos";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Global, css } from "@emotion/react";
-import Navigation from "./components/Navigation";
+import ScrollAnimation from "./pages/scroll-animation/ScrollAnimation";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "photos",
         element: <Photos />,
+      },
+      {
+        path: "scrollanimation",
+        element: <ScrollAnimation />,
       },
     ],
   },
@@ -57,7 +61,6 @@ root.render(
     />
 
     <Provider store={store}>
-      <Navigation />
       <RouterProvider router={router} />
     </Provider>
   </React.StrictMode>
