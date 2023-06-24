@@ -20,7 +20,7 @@ export default function Photos() {
     //   .catch((error) => console.log("error", error));
     async function getPhotos() {
       const result = await axios("https://jsonplaceholder.typicode.com/photos");
-      setPhotos(result.data.slice(0, 10));
+      setPhotos(result.data.slice(0, 50));
     }
     getPhotos();
     // axios("https://jsonplaceholder.typicode.com/photos").then((result) => {
