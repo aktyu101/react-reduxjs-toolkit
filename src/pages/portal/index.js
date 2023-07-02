@@ -98,7 +98,7 @@ const StyledModal = styled(motion.div)`
   height: 300px;
   background-color: #fff;
   display: flex;
-  gap: 10px;
+  gap: 20px;
   flex-direction: column;
 `;
 const Container = styled.div`
