@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import styled from "@emotion/styled";
-import { inView, motion, useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 
 const items = [
   {
