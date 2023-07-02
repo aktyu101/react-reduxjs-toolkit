@@ -54,6 +54,11 @@ export default function Navigation() {
               scrollanimation
             </Link>
           </li>
+          <li>
+            <Link to="/portal" style={{ color: "#fff" }}>
+              portal
+            </Link>
+          </li>
         </ul>
       </div>
     </header>

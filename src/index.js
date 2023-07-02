@@ -11,6 +11,7 @@ import Photos from "./pages/photos";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Global, css } from "@emotion/react";
 import ScrollAnimation from "./pages/scroll-animation/ScrollAnimation";
+import Portal from "./pages/portal";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "scrollanimation",
         element: <ScrollAnimation />,
+      },
+      {
+        path: "portal",
+        element: <Portal />,
       },
     ],
   },
